@@ -1,0 +1,6 @@
+tls:
+  certificates:
+    - certFile: /certs/laravel.localhost.crt
+      keyFile: /certs/laravel.localhost.key
+    - certFile: /certs/ckan.localhost.crt
+      keyFile: /certs/ckan.localhost.key
