@@ -9,13 +9,14 @@ services:
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.traefik.address=:8080"
     ports:
       - "80:80" # The HTTP port
       - "443:443" # The HTTPS port
       - "8080:8080" # The Traefik Dashboard port
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "./traefik/traefik.yml:/traefik.yml" # Traefik configuration file
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./traefik/traefik.yml:/traefik.yml" # Ensure this file exists and is correct
     networks:
       - traefik-net
 
